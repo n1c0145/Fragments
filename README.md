@@ -1,3 +1,3 @@
 # Fragments
 
-## Android Recycler View using Frangments
+## Android Recycler View using Fragments
