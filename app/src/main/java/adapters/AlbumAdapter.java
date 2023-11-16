@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.eduardoloza.fragments.R;
 
 import java.util.List;
+import com.bumptech.glide.Glide;
 
 import models.Album;
 
@@ -57,7 +58,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         }
 
         public void setAlbumData(Album album){
-            imgCover.setImageResource(album.getCoverResourceId());
+            Glide.with(context).load(album.getImageurl()).into(imgCover);
             tvTitle.setText(album.getTitle());
             tvArtist.setText(album.getArtist());
             tvGenre.setText(album.getGenre());

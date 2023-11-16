@@ -1,16 +1,19 @@
 package models;
 
 public class Album {
+    private long id;
     private String title;
     private String artist;
     private String genre;
-    private int coverResourceId;
+    private String imageurl;
 
-    public Album(String title, String artist, String genre, int coverResourceId) {
+
+    public Album(long id, String title, String artist, String genre, String imageurl) {
+        this.id = id;
         this.title = title;
         this.artist = artist;
         this.genre = genre;
-        this.coverResourceId = coverResourceId;
+        this.imageurl = imageurl;
     }
 
     public String getTitle() {
@@ -25,8 +28,12 @@ public class Album {
         return genre;
     }
 
-    public int getCoverResourceId() {
-        return coverResourceId;
+    public long getId() {
+        return id;
+    }
+
+    public String getImageurl() {
+        return imageurl;
     }
 
     public void setTitle(String title) {
@@ -41,7 +48,13 @@ public class Album {
         this.genre = genre;
     }
 
-    public void setCoverResourceId(int coverResourceId) {
-        this.coverResourceId = coverResourceId;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }
+
+

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.bumptech.glide.Glide;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -29,7 +29,9 @@ public class AlbumFragment extends Fragment {
         albumArtist = view.findViewById(R.id.albumArtist);
         albumGenre = view.findViewById(R.id.albumGenre);
 
-        albumCover.setImageResource(this.album.getCoverResourceId());
+        //Uso de libreria glade para para cragar imagen url
+        Glide.with(this).load(album.getImageurl()).into(albumCover);
+
         albumTitle.setText(this.album.getTitle());
         albumArtist.setText(this.album.getArtist());
         albumGenre.setText(this.album.getGenre());
@@ -39,3 +41,4 @@ public class AlbumFragment extends Fragment {
 
     }
 }
+
