@@ -3,7 +3,12 @@ package com.eduardoloza.fragments;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +22,22 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AlbumAdapter albumAdapter;
     private List<Album> albums;
+    private FloatingActionButton fabAlbumForm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         recyclerView=findViewById(R.id.recyclerView);
+        //boton de +
+        fabAlbumForm = findViewById(R.id.fabNewAlbum);
+        fabAlbumForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AlbumForm.class);
+                startActivity(intent);
+            }
+        });
         this.laodAlbums();
     }
         /*

@@ -37,7 +37,9 @@ public class AlbumDatabaseHelper extends SQLiteOpenHelper{
                         COLUMN_GENRE + " TEXT, " +
                         COLUMN_IMAGE_URL + " TEXT" + ");"
         );
+        //primer ingreso
         ContentValues values = new ContentValues();
+
         values.put(COLUMN_TITLE,"Dark Side of the moon");
         values.put(COLUMN_ARTIST,"Pink Floyd");
         values.put(COLUMN_GENRE,"Rock");
@@ -82,5 +84,19 @@ public class AlbumDatabaseHelper extends SQLiteOpenHelper{
             }
         }
         return albumList;
+    }
+
+    public long insertAlbum(Album album){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_TITLE, album.getTitle());
+        values.put(COLUMN_ARTIST,album.getArtist());
+        values.put(COLUMN_GENRE,album.getGenre());
+        values.put(COLUMN_IMAGE_URL, album.getImageurl());
+
+        long id = db.insert(ALBUMS_TABLE,null,values);
+        db.close();
+        return id;
     }
 }
